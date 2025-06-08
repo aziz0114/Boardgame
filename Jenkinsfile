@@ -1,11 +1,12 @@
 pipeline {
-    agent any
+    agent {
+        label 'agent-01'
+    }
     tools {
         jdk "jdk 17"
         maven "maven 3"
     }
     stages {
-      
          stage('compile') {
             steps {
                sh "mvn compile"
@@ -21,5 +22,5 @@ pipeline {
                sh "mvn package"
             }
          }
-     }
+    }
 }
